@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Tarefa</title>
+</head>
+<body>
+    <h1>Cadastrar Nova Tarefa</h1>
+    <form action="/tarefas/cadastrar" method="POST">
+        <div>
+            <label>Título:</label><br>
+            <input type="text" name="titulo" required placeholder="Ex: Estudar TypeScript">
+        </div>
+        <br>
+        <div>
+            <label>Descrição:</label><br>
+            <textarea name="descricao" rows="4"></textarea>
+        </div>
+        <br>
+        <div>
+            <label>Prioridade:</label>
+            <select name="prioridade">
+                <option value="baixa">Baixa</option>
+                <option value="media" selected>Média</option>
+                <option value="alta">Alta</option>
+            </select>
+        </div>
+        <br>
+        <button type="submit">Salvar Tarefa</button>
+        <a href="/tarefas">Cancelar</a>
+    </form>
+</body>
+</html>

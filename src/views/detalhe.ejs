@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes da Tarefa</title>
+</head>
+<body>
+    <h1>Tarefa: <%= tarefa.titulo %></h1>
+    <p><strong>Descrição:</strong> <%= tarefa.descricao || 'Sem descrição' %></p>
+    <p><strong>Prioridade:</strong> <%= tarefa.prioridade %></p>
+    <p><strong>Status:</strong> <%= tarefa.concluida ? 'Concluída' : 'Pendente' %></p>
+    <p><strong>Criada em:</strong> <%= new Date(tarefa.dataCriacao).toLocaleString('pt-BR') %></p>
+    
+    <hr>
+    <a href="/tarefas">Voltar para a lista</a>
+</body>
+</html>

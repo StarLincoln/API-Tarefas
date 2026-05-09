@@ -1,6 +1,6 @@
 // src/app.ts — só COLA os módulos!
 import express from "express";
-import { logger } from "./middlewares/logger";
+import logger from "./middlewares/logger";
 import { tarefaRoutes } from "./routes/tarefaRoutes";
 
 const app = express();

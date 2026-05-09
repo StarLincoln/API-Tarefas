@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Minhas Tarefas</h1>
+    <a href="/tarefas/cadastrar" class="btn-novo">Add Nova Tarefa</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Título</th>
+                <th>Prioridade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% tarefas.forEach(tarefa => { %>
+                <tr>
+                    <td><%= tarefa.concluida ? '✅' : '⏳' %></td>
+                    <td><strong><%= tarefa.titulo %></strong></td>
+                    <td><%= tarefa.prioridade %></td>
+                    <td>
+                        <a href="/tarefas/<%= tarefa.id %>">Ver</a> | 
+                        
+                        <!-- Formulário para Alternar Status -->
+                        <form action="/tarefas/concluir/<%= tarefa.id %>" method="POST" style="display:inline;">
+                            <button type="submit"><%= tarefa.concluida ? 'Refazer' : 'Concluir' %></button>
+                        </form>
+
+                        <!-- Formulário para Excluir -->
+                        <form action="/tarefas/excluir/<%= tarefa.id %>" method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza?')">
+                            <button type="submit" style="color: red;">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
